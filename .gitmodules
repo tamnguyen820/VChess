@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/tamnguyen820/vchess-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/tamnguyen820/vchess-frontend.git
