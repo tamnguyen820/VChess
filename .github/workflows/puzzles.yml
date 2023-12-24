@@ -1,0 +1,32 @@
+name: Populate Puzzles in DB
+
+on:
+  workflow_dispatch:
+
+jobs:
+  populate-puzzles:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download Lichess puzzle dataset
+        run: |
+          wget https://database.lichess.org/lichess_db_puzzle.csv.zst
+          zstd -d lichess_db_puzzle.csv.zst
+          ls -la
+
+      - name: Install Python and dependencies
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install pandas pymongo
+
+      - name: Execute Python script
+        env:
+          MONGODB_URL: ${{ secrets.MONGODB_URL }}
+          MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
+          NUMBER_OF_PUZZLES: ${{ vars.NUMBER_OF_PUZZLES }}
+        run: python scripts/insert_puzzles.py
