@@ -1,13 +1,14 @@
 # VChess
 
-VChess is an online chess platform that allows users to play chess against each other in real-time. The project is divided into two main components: the frontend and the backend.
+**VChess** is an online chess platform that allows users to play chess against each other in real-time. The project is divided into two main components: the backend and the frontend. They are Git submodules - essentially references (of commits) to other Git repositories to keep my backend and frontend code/commits seperate, while allowing them to be to be put in the same superproject.
 
 ## Features
 
+- **Responsive UI:** User-friendly interface for seamless chess gameplay with high keyboard accessibility.
 - **Real-time Chess:** Play chess against opponents in real-time.
 - **Matchmaking:** Automatically find and pair players based on availability.
-- **Responsive UI:** User-friendly interface for seamless chess gameplay with high keyboard accessibility.
-- **WebSocket Communication:** Utilizes WebSocket and Socket.IO for real-time communication.
+- **Analysis Mode:** Utilizes the Stockfish chess engine to run as a web worker to provide positions evaluation and move suggestions.
+- **Puzzles:** A training mode to allow users to train their tactics on random chess puzzles.
 
 ## Getting Started
 
@@ -17,11 +18,12 @@ VChess is an online chess platform that allows users to play chess against each 
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository and update submodules:
 
    ```
-   git clone https://github.com/tamnguyen820/VChess.git
+   git clone --recursive https://github.com/tamnguyen820/VChess.git
    cd VChess
+   git submodule update --init --recursive
    ```
 
 2. Install dependencies for both frontend and backend:
@@ -56,3 +58,4 @@ This project is licensed under the MIT License - see the [LICENSE ](./LICENSE) f
 
 ## Acknowledgments
 - [Lichess](https://lichess.org/): the project utilizes many assets from Lichess (board themes, piece sets, sounds, API, etc.)
+- [Stockfish.js](https://github.com/nmrugg/stockfish.js): the chess engine this project uses for position analysis.
