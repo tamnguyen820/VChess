@@ -1,6 +1,7 @@
 # VChess
-
+<p>
 <img src="./images/vchess.png" width="200" alt="VChess Logo"><br>
+</p>
 
 **VChess** is an online chess platform that allows users to play chess against each other in real-time. The project is divided into two main components: the backend and the frontend. They are Git submodules - essentially references (of commits) to other Git repositories to keep my backend and frontend code/commits seperate, while allowing them to be to be put in the same superproject.
 
