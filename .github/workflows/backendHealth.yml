@@ -1,0 +1,13 @@
+name: Health check for backend
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send request
+        run: |
+          curl -sSf ${{ secrets.BACKEND_URL }}
