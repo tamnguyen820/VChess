@@ -1,4 +1,4 @@
-name: Populate Puzzles in DB
+name: Populate puzzles in DB
 
 on:
   workflow_dispatch:
